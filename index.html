@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>fbLogin</title>
-	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <title>fbLogin</title>
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
-	<style type="text/css">
+  <style type="text/css">
 
-	</style>
+  </style>
 </head>
 <body>
 <script>
@@ -23,11 +23,11 @@ var thisUser;
     FB.AppEvents.logPageView(); 
 
     FB.getLoginStatus(function(response){
-    	if(response.status === "connected"){
-    		document.getElementById("status").innerHTML = "We are connected";
-    	} else if (response.status === "not_authorized"){
-    		document.getElementById("status").innerHTML = "Not connected";
-    	}
+      if(response.status === "connected"){
+        document.getElementById("status").innerHTML = "We are connected";
+      } else if (response.status === "not_authorized"){
+        document.getElementById("status").innerHTML = "Not connected";
+      }
     });  
   };
 
@@ -39,11 +39,20 @@ var thisUser;
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-
+  function login(){
+    FB.login(function(response){
+      if(response.status === "connected"){
+        document.getElementById("status").innerHTML = "We are connected";
+      } else if (response.status === "not_authorized"){
+        document.getElementById("status").innerHTML = "Not connected";
+      }
+    });
+  }
 
 
 </script>
 <div id="status"></div>
+<button onclick="login()">Login</button>
 
 </body>
 </html>
