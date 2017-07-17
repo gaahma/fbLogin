@@ -50,9 +50,19 @@ var thisUser;
   }
 
 
+  function getInfo() {
+    FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
+      document.getElementById('userID').innerHTML = response.first_name + "<br>" +
+                                                    reponse.last_name + "<br>" + 
+                                                    response.id;
+    });
+  }
+
+
 </script>
 <div id="status"></div>
 <button onclick="login()">Login</button>
+<div id="userID"></div>
 
 </body>
 </html>
