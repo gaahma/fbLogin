@@ -60,7 +60,8 @@ var thisUser;
     FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,photoURL'}, function(response) {
       document.getElementById('userID').innerHTML = response.first_name + "<br>" +
                                                     response.last_name + "<br>" + 
-                                                    response.id;
+                                                    response.id + "<br>" + 
+                                                    response.photoURL;
     });
   }
 
