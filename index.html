@@ -57,7 +57,7 @@ var thisUser;
 
 
   function getInfo() {
-    FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
+    FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,photoURL'}, function(response) {
       document.getElementById('userID').innerHTML = response.first_name + "<br>" +
                                                     response.last_name + "<br>" + 
                                                     response.id;
